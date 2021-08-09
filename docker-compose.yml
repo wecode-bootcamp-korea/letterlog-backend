@@ -1,0 +1,35 @@
+version: '3'
+
+volumes:
+  db_data: {}
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    env_file:
+      - db.env
+    ports:
+      - '3306:3306'
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
+  django:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-dev
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - django.env
+    ports:
+      - "8000:8000"
+    command: >-
+      sh -c "docker/wait-for db:3306 -- python manage.py migrate --settings=letterlog.settings.local &&
+             python manage.py runserver 0:8000 --settings=letterlog.settings.local"
+    depends_on:
+      - db
+    restart: always
