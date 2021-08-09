@@ -37,7 +37,7 @@ class Postbox(models.Model):
 
     @staticmethod
     def validate_date(open_at, closed_at):
-        if open_at - closed_at <= timedelta(days=DELTA_DAY):
+        if open_at - closed_at < timedelta(days=DELTA_DAY):
             return False
 
         if closed_at < timezone.localtime().date():
