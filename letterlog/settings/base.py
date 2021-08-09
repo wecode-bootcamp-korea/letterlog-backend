@@ -118,3 +118,7 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
+
+CRONJOBS = [
+    ('0 0 * * *' , 'postboxes.cron.update_postbox_open_status'),
+]
