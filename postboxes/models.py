@@ -3,14 +3,14 @@ import uuid
 from django.db      import models
 
 class Postbox(models.Model):
-    uuid       = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
-    name       = models.CharField(max_length=100)
-    password   = models.CharField(max_length=200, null=True)
-    is_public  = models.BooleanField(default=True)
-    open_at    = models.DateField()
-    closed_at  = models.DateField()
-    is_open    = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    uuid          = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    name          = models.CharField(max_length=100)
+    password      = models.CharField(max_length=200, null=True)
+    is_public     = models.BooleanField(default=True)
+    send_at       = models.DateField()
+    closed_at     = models.DateField()
+    days_to_close = models.IntegerField()
+    created_at    = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = 'postboxes'
