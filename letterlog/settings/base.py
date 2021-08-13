@@ -18,7 +18,7 @@ AWS_S3_ACCESS_KEY    = os.environ.get('AWS_S3_ACCESS_KEY')
 
 INSTALLED_APPS = [
     # 'django.contrib.admin',
-    # 'django.contrib.auth',
+    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
