@@ -1,5 +1,7 @@
 from django.urls    import path
 
-urlpatterns = [
+from postboxes.views    import PostboxAccessAPIView
 
+urlpatterns = [
+    path('/access', PostboxAccessAPIView.as_view())
 ]
