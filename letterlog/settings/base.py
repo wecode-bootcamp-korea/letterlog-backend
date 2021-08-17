@@ -147,3 +147,9 @@ EMAIL_USE_TLS       = True
 EMAIL_PORT          = 587
 EMAIL_HOST_USER     = os.environ.get('DJANGO_EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_HOST_PASSWORD')
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'postboxes.authentication.PostboxAuthentication',
+    )
+}
