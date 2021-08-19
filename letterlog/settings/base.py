@@ -18,11 +18,12 @@ AWS_S3_ACCESS_KEY    = os.environ.get('AWS_S3_ACCESS_KEY')
 
 INSTALLED_APPS = [
     # 'django.contrib.admin',
-    # 'django.contrib.auth',
+    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'corsheaders',
     'django_crontab',
     'postboxes'
@@ -140,10 +141,3 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
-
-EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST          = 'smtp.gmail.com'
-EMAIL_USE_TLS       = True
-EMAIL_PORT          = 587
-EMAIL_HOST_USER     = os.environ.get('DJANGO_EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_HOST_PASSWORD')
