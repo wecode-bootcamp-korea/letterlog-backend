@@ -1,8 +1,8 @@
-import os
-
 from .base    import *
 
 DEBUG = True
+
+ADMIN_ENABLED = True
 
 ALLOWED_HOSTS = ['*']
 
