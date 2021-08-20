@@ -1,5 +1,7 @@
 from django.urls    import path
 
-urlpatterns = [
+from postboxes.views    import LetterListAPIView
 
+urlpatterns = [
+    path('/collection', LetterListAPIView.as_view())
 ]
